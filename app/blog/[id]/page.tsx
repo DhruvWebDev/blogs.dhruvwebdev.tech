@@ -206,12 +206,51 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-neutral-800 dark:prose-headings:text-white prose-p:text-neutral-600 dark:prose-p:text-neutral-300 prose-a:text-blue-600 dark:prose-a:text-blue-400"
+          className="notion-content"
         >
           {blog.content ? (
-            <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+            <div
+              className="prose prose-lg dark:prose-invert max-w-none 
+                prose-headings:text-neutral-900 dark:prose-headings:text-white 
+                prose-headings:font-bold prose-headings:tracking-tight
+                prose-h1:text-3xl prose-h1:mb-6 prose-h1:mt-8
+                prose-h2:text-2xl prose-h2:mb-4 prose-h2:mt-6
+                prose-h3:text-xl prose-h3:mb-3 prose-h3:mt-5
+                prose-p:text-neutral-700 dark:prose-p:text-neutral-300 
+                prose-p:leading-relaxed prose-p:mb-4
+                prose-a:text-blue-600 dark:prose-a:text-blue-400
+                prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-neutral-900 dark:prose-strong:text-white
+                prose-strong:font-semibold
+                prose-code:text-pink-600 dark:prose-code:text-pink-400
+                prose-code:bg-neutral-100 dark:prose-code:bg-neutral-800
+                prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm
+                prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
+                prose-pre:bg-neutral-900 dark:prose-pre:bg-neutral-800
+                prose-pre:text-neutral-100 prose-pre:p-4 prose-pre:rounded-lg
+                prose-pre:overflow-x-auto prose-pre:my-6
+                prose-blockquote:border-l-4 prose-blockquote:border-blue-500
+                prose-blockquote:bg-blue-50 dark:prose-blockquote:bg-blue-900/20
+                prose-blockquote:px-4 prose-blockquote:py-3 prose-blockquote:my-6
+                prose-blockquote:italic prose-blockquote:text-neutral-700 dark:prose-blockquote:text-neutral-300
+                prose-ul:text-neutral-700 dark:prose-ul:text-neutral-300
+                prose-ul:my-4 prose-ul:pl-6
+                prose-ol:text-neutral-700 dark:prose-ol:text-neutral-300
+                prose-ol:my-4 prose-ol:pl-6
+                prose-li:text-neutral-700 dark:prose-li:text-neutral-300
+                prose-li:mb-2 prose-li:leading-relaxed
+                prose-table:my-6 prose-table:w-full
+                prose-th:bg-neutral-100 dark:prose-th:bg-neutral-800
+                prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:font-semibold
+                prose-td:px-4 prose-td:py-2 prose-td:border-t prose-td:border-neutral-200 dark:prose-td:border-neutral-700
+                prose-hr:my-8 prose-hr:border-neutral-300 dark:prose-hr:border-neutral-600
+                prose-img:rounded-lg prose-img:shadow-lg prose-img:my-6"
+              dangerouslySetInnerHTML={{ __html: blog.content }}
+            />
           ) : (
-            <p className="text-neutral-600 dark:text-neutral-400">No content available for this post.</p>
+            <div className="text-center py-16 bg-neutral-50 dark:bg-neutral-900 rounded-lg">
+              <p className="text-neutral-600 dark:text-neutral-400">No content available for this post.</p>
+            </div>
           )}
         </motion.div>
 
@@ -247,6 +286,236 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           </div>
         </motion.footer>
       </article>
+
+      {/* Enhanced Global Styles for Notion Content */}
+      <style jsx global>{`
+        .notion-content {
+          line-height: 1.7;
+          color: #374151;
+        }
+        
+        .dark .notion-content {
+          color: #d1d5db;
+        }
+        
+        .notion-content h1,
+        .notion-content h2,
+        .notion-content h3,
+        .notion-content h4,
+        .notion-content h5,
+        .notion-content h6 {
+          color: #111827;
+          font-weight: 700;
+          line-height: 1.25;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+        }
+        
+        .dark .notion-content h1,
+        .dark .notion-content h2,
+        .dark .notion-content h3,
+        .dark .notion-content h4,
+        .dark .notion-content h5,
+        .dark .notion-content h6 {
+          color: #ffffff;
+        }
+        
+        .notion-content h1 {
+          font-size: 2.25rem;
+          border-bottom: 2px solid #e5e7eb;
+          padding-bottom: 0.5rem;
+          margin-top: 3rem;
+        }
+        
+        .dark .notion-content h1 {
+          border-bottom-color: #374151;
+        }
+        
+        .notion-content h2 {
+          font-size: 1.875rem;
+          margin-top: 2.5rem;
+        }
+        
+        .notion-content h3 {
+          font-size: 1.5rem;
+          margin-top: 2rem;
+        }
+        
+        .notion-content h4 {
+          font-size: 1.25rem;
+          margin-top: 1.5rem;
+        }
+        
+        .notion-content p {
+          margin-bottom: 1.25rem;
+          line-height: 1.75;
+          color: #374151;
+        }
+        
+        .dark .notion-content p {
+          color: #d1d5db;
+        }
+        
+        .notion-content ul,
+        .notion-content ol {
+          margin: 1.25rem 0;
+          padding-left: 1.75rem;
+        }
+        
+        .notion-content li {
+          margin-bottom: 0.75rem;
+          line-height: 1.6;
+          color: #374151;
+        }
+        
+        .dark .notion-content li {
+          color: #d1d5db;
+        }
+        
+        .notion-content blockquote {
+          margin: 2rem 0;
+          padding: 1.25rem 1.75rem;
+          border-left: 4px solid #3b82f6;
+          background-color: #eff6ff;
+          font-style: italic;
+          color: #1e40af;
+          border-radius: 0.5rem;
+        }
+        
+        .dark .notion-content blockquote {
+          background-color: #1e3a8a;
+          color: #bfdbfe;
+          border-left-color: #60a5fa;
+        }
+        
+        .notion-content pre {
+          margin: 2rem 0;
+          padding: 1.5rem;
+          background-color: #1f2937;
+          color: #f9fafb;
+          border-radius: 0.75rem;
+          overflow-x: auto;
+          font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+          font-size: 0.875rem;
+          line-height: 1.6;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .notion-content code {
+          font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+          font-size: 0.875rem;
+          background-color: #f3f4f6;
+          color: #ec4899;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.375rem;
+          font-weight: 500;
+        }
+        
+        .dark .notion-content code {
+          background-color: #374151;
+          color: #f472b6;
+        }
+        
+        .notion-content pre code {
+          background: none;
+          padding: 0;
+          border-radius: 0;
+          color: inherit;
+          font-weight: normal;
+        }
+        
+        .notion-content img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 0.75rem;
+          margin: 2rem 0;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .notion-content table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 2rem 0;
+          border-radius: 0.5rem;
+          overflow: hidden;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .notion-content th,
+        .notion-content td {
+          border: 1px solid #e5e7eb;
+          padding: 0.875rem 1rem;
+          text-align: left;
+        }
+        
+        .dark .notion-content th,
+        .dark .notion-content td {
+          border-color: #374151;
+        }
+        
+        .notion-content th {
+          background-color: #f9fafb;
+          font-weight: 600;
+          color: #111827;
+        }
+        
+        .dark .notion-content th {
+          background-color: #1f2937;
+          color: #ffffff;
+        }
+        
+        .notion-content a {
+          color: #2563eb;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+        
+        .notion-content a:hover {
+          color: #1d4ed8;
+          text-decoration: underline;
+          text-decoration-color: #3b82f6;
+          text-underline-offset: 3px;
+        }
+        
+        .dark .notion-content a {
+          color: #60a5fa;
+        }
+        
+        .dark .notion-content a:hover {
+          color: #93c5fd;
+          text-decoration-color: #60a5fa;
+        }
+        
+        .notion-content hr {
+          margin: 3rem 0;
+          border: none;
+          border-top: 2px solid #e5e7eb;
+          border-radius: 1px;
+        }
+        
+        .dark .notion-content hr {
+          border-top-color: #374151;
+        }
+        
+        .notion-content strong {
+          font-weight: 600;
+          color: #111827;
+        }
+        
+        .dark .notion-content strong {
+          color: #ffffff;
+        }
+        
+        .notion-content em {
+          font-style: italic;
+          color: #6b7280;
+        }
+        
+        .dark .notion-content em {
+          color: #9ca3af;
+        }
+      `}</style>
     </div>
   )
 }
