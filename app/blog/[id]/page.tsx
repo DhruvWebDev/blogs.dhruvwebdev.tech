@@ -206,12 +206,17 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-neutral-800 dark:prose-headings:text-white prose-p:text-neutral-600 dark:prose-p:text-neutral-300 prose-a:text-blue-600 dark:prose-a:text-blue-400"
+          className="notion-content"
         >
           {blog.content ? (
-            <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+            <div
+              className="prose prose-lg dark:prose-invert max-w-none"
+              dangerouslySetInnerHTML={{ __html: blog.content }}
+            />
           ) : (
-            <p className="text-neutral-600 dark:text-neutral-400">No content available for this post.</p>
+            <div className="text-center py-16 bg-neutral-50 dark:bg-neutral-900 rounded-lg">
+              <p className="text-neutral-600 dark:text-neutral-400">No content available for this post.</p>
+            </div>
           )}
         </motion.div>
 
@@ -247,6 +252,262 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           </div>
         </motion.footer>
       </article>
+
+      {/* Enhanced Global Styles for Notion Content */}
+      <style jsx global>{`
+        .notion-content pre {
+          margin: 2rem 0;
+          padding: 1.5rem;
+          background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+          color: #e2e8f0;
+          border-radius: 0.75rem;
+          overflow-x: auto;
+          font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+          font-size: 0.875rem;
+          line-height: 1.7;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          border: 1px solid #334155;
+          position: relative;
+        }
+
+        .notion-content pre::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+          border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        .dark .notion-content pre {
+          background: linear-gradient(135deg, #0c0a09 0%, #1c1917 100%);
+          border-color: #44403c;
+          color: #fafaf9;
+        }
+
+        .notion-content code {
+          font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+          font-size: 0.85rem;
+          background-color: #f1f5f9;
+          color: #be185d;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.375rem;
+          font-weight: 500;
+          border: 1px solid #e2e8f0;
+        }
+
+        .dark .notion-content code {
+          background-color: #1e293b;
+          color: #f472b6;
+          border-color: #334155;
+        }
+
+        .notion-content pre code {
+          background: none;
+          padding: 0;
+          border-radius: 0;
+          color: inherit;
+          font-weight: normal;
+          border: none;
+          font-size: 0.875rem;
+        }
+
+        
+        .notion-content {
+          line-height: 1.7;
+          color: #374151;
+        }
+        
+        .dark .notion-content {
+          color: #d1d5db;
+        }
+        
+        .notion-content h1,
+        .notion-content h2,
+        .notion-content h3,
+        .notion-content h4,
+        .notion-content h5,
+        .notion-content h6 {
+          color: #111827;
+          font-weight: 700;
+          line-height: 1.25;
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+        }
+        
+        .dark .notion-content h1,
+        .dark .notion-content h2,
+        .dark .notion-content h3,
+        .dark .notion-content h4,
+        .dark .notion-content h5,
+        .dark .notion-content h6 {
+          color: #ffffff;
+        }
+        
+        .notion-content h1 {
+          font-size: 2.25rem;
+          border-bottom: 2px solid #e5e7eb;
+          padding-bottom: 0.5rem;
+          margin-top: 3rem;
+        }
+        
+        .dark .notion-content h1 {
+          border-bottom-color: #374151;
+        }
+        
+        .notion-content h2 {
+          font-size: 1.875rem;
+          margin-top: 2.5rem;
+        }
+        
+        .notion-content h3 {
+          font-size: 1.5rem;
+          margin-top: 2rem;
+        }
+        
+        .notion-content h4 {
+          font-size: 1.25rem;
+          margin-top: 1.5rem;
+        }
+        
+        .notion-content p {
+          margin-bottom: 1.25rem;
+          line-height: 1.75;
+          color: #374151;
+        }
+        
+        .dark .notion-content p {
+          color: #d1d5db;
+        }
+        
+        .notion-content ul,
+        .notion-content ol {
+          margin: 1.25rem 0;
+          padding-left: 1.75rem;
+        }
+        
+        .notion-content li {
+          margin-bottom: 0.75rem;
+          line-height: 1.6;
+          color: #374151;
+        }
+        
+        .dark .notion-content li {
+          color: #d1d5db;
+        }
+        
+        .notion-content blockquote {
+          margin: 2rem 0;
+          padding: 1.25rem 1.75rem;
+          border-left: 4px solid #3b82f6;
+          background-color: #eff6ff;
+          font-style: italic;
+          color: #1e40af;
+          border-radius: 0.5rem;
+        }
+        
+        .dark .notion-content blockquote {
+          background-color: #1e3a8a;
+          color: #bfdbfe;
+          border-left-color: #60a5fa;
+        }
+        
+        
+        
+        .notion-content img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 0.75rem;
+          margin: 2rem 0;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .notion-content table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 2rem 0;
+          border-radius: 0.5rem;
+          overflow: hidden;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+        
+        .notion-content th,
+        .notion-content td {
+          border: 1px solid #e5e7eb;
+          padding: 0.875rem 1rem;
+          text-align: left;
+        }
+        
+        .dark .notion-content th,
+        .dark .notion-content td {
+          border-color: #374151;
+        }
+        
+        .notion-content th {
+          background-color: #f9fafb;
+          font-weight: 600;
+          color: #111827;
+        }
+        
+        .dark .notion-content th {
+          background-color: #1f2937;
+          color: #ffffff;
+        }
+        
+        .notion-content a {
+          color: #2563eb;
+          text-decoration: none;
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+        
+        .notion-content a:hover {
+          color: #1d4ed8;
+          text-decoration: underline;
+          text-decoration-color: #3b82f6;
+          text-underline-offset: 3px;
+        }
+        
+        .dark .notion-content a {
+          color: #60a5fa;
+        }
+        
+        .dark .notion-content a:hover {
+          color: #93c5fd;
+          text-decoration-color: #60a5fa;
+        }
+        
+        .notion-content hr {
+          margin: 3rem 0;
+          border: none;
+          border-top: 2px solid #e5e7eb;
+          border-radius: 1px;
+        }
+        
+        .dark .notion-content hr {
+          border-top-color: #374151;
+        }
+        
+        .notion-content strong {
+          font-weight: 600;
+          color: #111827;
+        }
+        
+        .dark .notion-content strong {
+          color: #ffffff;
+        }
+        
+        .notion-content em {
+          font-style: italic;
+          color: #6b7280;
+        }
+        
+        .dark .notion-content em {
+          color: #9ca3af;
+        }
+      `}</style>
     </div>
   )
 }
