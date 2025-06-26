@@ -255,6 +255,122 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
 
       {/* Enhanced Global Styles for Notion Content */}
       <style jsx global>{`
+        .notion-content pre {
+          margin: 2rem 0;
+          padding: 1.5rem;
+          background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+          color: #e2e8f0;
+          border-radius: 0.75rem;
+          overflow-x: auto;
+          font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+          font-size: 0.875rem;
+          line-height: 1.7;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          border: 1px solid #334155;
+          position: relative;
+        }
+
+        .notion-content pre::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+          border-radius: 0.75rem 0.75rem 0 0;
+        }
+
+        .dark .notion-content pre {
+          background: linear-gradient(135deg, #0c0a09 0%, #1c1917 100%);
+          border-color: #44403c;
+          color: #fafaf9;
+        }
+
+        .notion-content code {
+          font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
+          font-size: 0.85rem;
+          background-color: #f1f5f9;
+          color: #be185d;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.375rem;
+          font-weight: 500;
+          border: 1px solid #e2e8f0;
+        }
+
+        .dark .notion-content code {
+          background-color: #1e293b;
+          color: #f472b6;
+          border-color: #334155;
+        }
+
+        .notion-content pre code {
+          background: none;
+          padding: 0;
+          border-radius: 0;
+          color: inherit;
+          font-weight: normal;
+          border: none;
+          font-size: 0.875rem;
+        }
+
+        /* Enhanced syntax highlighting for common languages */
+        .notion-content pre .token.comment,
+        .notion-content pre .token.prolog,
+        .notion-content pre .token.doctype,
+        .notion-content pre .token.cdata {
+          color: #64748b;
+          font-style: italic;
+        }
+
+        .notion-content pre .token.punctuation {
+          color: #94a3b8;
+        }
+
+        .notion-content pre .token.property,
+        .notion-content pre .token.tag,
+        .notion-content pre .token.boolean,
+        .notion-content pre .token.number,
+        .notion-content pre .token.constant,
+        .notion-content pre .token.symbol,
+        .notion-content pre .token.deleted {
+          color: #f59e0b;
+        }
+
+        .notion-content pre .token.selector,
+        .notion-content pre .token.attr-name,
+        .notion-content pre .token.string,
+        .notion-content pre .token.char,
+        .notion-content pre .token.builtin,
+        .notion-content pre .token.inserted {
+          color: #10b981;
+        }
+
+        .notion-content pre .token.operator,
+        .notion-content pre .token.entity,
+        .notion-content pre .token.url,
+        .notion-content pre .language-css .token.string,
+        .notion-content pre .style .token.string {
+          color: #06b6d4;
+        }
+
+        .notion-content pre .token.atrule,
+        .notion-content pre .token.attr-value,
+        .notion-content pre .token.keyword {
+          color: #8b5cf6;
+        }
+
+        .notion-content pre .token.function,
+        .notion-content pre .token.class-name {
+          color: #3b82f6;
+        }
+
+        .notion-content pre .token.regex,
+        .notion-content pre .token.important,
+        .notion-content pre .token.variable {
+          color: #ef4444;
+        }
+        
         .notion-content {
           line-height: 1.7;
           color: #374151;
@@ -354,41 +470,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           border-left-color: #60a5fa;
         }
         
-        .notion-content pre {
-          margin: 2rem 0;
-          padding: 1.5rem;
-          background-color: #1f2937;
-          color: #f9fafb;
-          border-radius: 0.75rem;
-          overflow-x: auto;
-          font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
-          font-size: 0.875rem;
-          line-height: 1.6;
-          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
         
-        .notion-content code {
-          font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Source Code Pro', monospace;
-          font-size: 0.875rem;
-          background-color: #f3f4f6;
-          color: #ec4899;
-          padding: 0.25rem 0.5rem;
-          border-radius: 0.375rem;
-          font-weight: 500;
-        }
-        
-        .dark .notion-content code {
-          background-color: #374151;
-          color: #f472b6;
-        }
-        
-        .notion-content pre code {
-          background: none;
-          padding: 0;
-          border-radius: 0;
-          color: inherit;
-          font-weight: normal;
-        }
         
         .notion-content img {
           max-width: 100%;
