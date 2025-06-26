@@ -314,62 +314,6 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
           font-size: 0.875rem;
         }
 
-        /* Enhanced syntax highlighting for common languages */
-        .notion-content pre .token.comment,
-        .notion-content pre .token.prolog,
-        .notion-content pre .token.doctype,
-        .notion-content pre .token.cdata {
-          color: #64748b;
-          font-style: italic;
-        }
-
-        .notion-content pre .token.punctuation {
-          color: #94a3b8;
-        }
-
-        .notion-content pre .token.property,
-        .notion-content pre .token.tag,
-        .notion-content pre .token.boolean,
-        .notion-content pre .token.number,
-        .notion-content pre .token.constant,
-        .notion-content pre .token.symbol,
-        .notion-content pre .token.deleted {
-          color: #f59e0b;
-        }
-
-        .notion-content pre .token.selector,
-        .notion-content pre .token.attr-name,
-        .notion-content pre .token.string,
-        .notion-content pre .token.char,
-        .notion-content pre .token.builtin,
-        .notion-content pre .token.inserted {
-          color: #10b981;
-        }
-
-        .notion-content pre .token.operator,
-        .notion-content pre .token.entity,
-        .notion-content pre .token.url,
-        .notion-content pre .language-css .token.string,
-        .notion-content pre .style .token.string {
-          color: #06b6d4;
-        }
-
-        .notion-content pre .token.atrule,
-        .notion-content pre .token.attr-value,
-        .notion-content pre .token.keyword {
-          color: #8b5cf6;
-        }
-
-        .notion-content pre .token.function,
-        .notion-content pre .token.class-name {
-          color: #3b82f6;
-        }
-
-        .notion-content pre .token.regex,
-        .notion-content pre .token.important,
-        .notion-content pre .token.variable {
-          color: #ef4444;
-        }
         
         .notion-content {
           line-height: 1.7;
