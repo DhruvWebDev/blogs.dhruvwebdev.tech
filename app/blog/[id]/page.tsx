@@ -210,7 +210,7 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         >
           {blog.content ? (
             <div
-              className="prose prose-lg dark:prose-invert max-w-none prose-headings:text-neutral-900 dark:prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight prose-h1:text-3xl prose-h1:mb-6 prose-h1:mt-8 prose-h2:text-2xl prose-h2:mb-4 prose-h2:mt-6 prose-h3:text-xl prose-h3:mb-3 prose-h3:mt-5 prose-p:text-neutral-700 dark:prose-p:text-neutral-300 prose-p:leading-relaxed prose-p:mb-4 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-strong:text-neutral-900 dark:prose-strong:text-white prose-strong:font-semibold prose-code:text-pink-600 dark:prose-code:text-pink-400 prose-code:bg-neutral-100 dark:prose-code:bg-neutral-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-pre:bg-neutral-900 dark:prose-pre:bg-neutral-800 prose-pre:text-neutral-100 prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto prose-pre:my-6 prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 dark:prose-blockquote:bg-blue-900/20 prose-blockquote:px-4 prose-blockquote:py-3 prose-blockquote:my-6 prose-blockquote:italic prose-blockquote:text-neutral-700 dark:prose-blockquote:text-neutral-300 prose-ul:text-neutral-700 dark:prose-ul:text-neutral-300 prose-ul:my-4 prose-ul:pl-6 prose-ol:text-neutral-700 dark:prose-ol:text-neutral-300 prose-ol:my-4 prose-ol:pl-6 prose-li:text-neutral-700 dark:prose-li:text-neutral-300 prose-li:mb-2 prose-li:leading-relaxed prose-table:my-6 prose-table:w-full prose-th:bg-neutral-100 dark:prose-th:bg-neutral-800 prose-th:px-4 prose-th:py-2 prose-th:text-left prose-th:font-semibold prose-td:px-4 prose-td:py-2 prose-td:border-t prose-td:border-neutral-200 dark:prose-td:border-neutral-700 prose-hr:my-8 prose-hr:border-neutral-300 dark:prose-hr:border-neutral-600 prose-img:rounded-lg prose-img:shadow-lg prose-img:my-6"
+              className="prose prose-lg dark:prose-invert max-w-none"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           ) : (
@@ -485,4 +485,3 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
     </div>
   )
 }
-</merged_code>
